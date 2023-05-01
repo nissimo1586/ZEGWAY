@@ -53,11 +53,16 @@ const EventItem = (props) => {
           </Text>
         </View>
         <View style={homeScreenStyles.eventImageContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('EventDetails', { event })}>
-            <Image source={{ uri: event.image }} style={homeScreenStyles.eventImage} />
-          </TouchableOpacity>
-          <View style={homeScreenStyles.overlay} />
-        </View>
+  <TouchableOpacity onPress={() => navigation.navigate('EventDetails', { event })}>
+    {event.image ? (
+      <Image source={{ uri: event.image }} style={homeScreenStyles.eventImage} />
+    ) : (
+      <Image source={require('../../assets/placeholder.png')} style={homeScreenStyles.eventImage} />
+    )}
+    <View style={homeScreenStyles.overlay} />
+  </TouchableOpacity>
+</View>
+
         <View style={homeScreenStyles.eventDetailsContainerbf}>
           <View style={homeScreenStyles.eventFooterContainer}>
             <TouchableOpacity onPress={toggleIconStatus}>

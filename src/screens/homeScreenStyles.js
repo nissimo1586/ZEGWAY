@@ -117,10 +117,14 @@ const homeScreenStyles = StyleSheet.create({
     width: '97%',
     height: 250,
     borderRadius: 5,
-    marginBottom: 10,
+    marginBottom: 3,
     marginLeft: 15,
     alignSelf: 'center',
-    marginTop: 40,
+    marginTop: 30,
+    marginRight: 10,
+  },
+  eventImageContainer: {
+    backgroundColor: '#272727',
   },
 
   overlay: {
