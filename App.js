@@ -19,23 +19,25 @@ const Tab = createMaterialBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const AllEventsStack = createStackNavigator();
 const MyEventsStack = createStackNavigator();
-
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
         name="Home"
-        component={() => (
+        options={{ headerShown: false }}
+        key="Home"
+      >
+        {() => (
           <ScreenWithAppBar>
             <HomeScreen />
           </ScreenWithAppBar>
         )}
-        options={{ headerShown: false }}
-      />
+      </HomeStack.Screen>
       <HomeStack.Screen
         name="EventDetails"
         component={EventDetailsScreen}
         options={{ title: 'Event Details' }}
+        key="EventDetails"
       />
     </HomeStack.Navigator>
   );
@@ -46,17 +48,20 @@ function AllEventsStackScreen() {
     <AllEventsStack.Navigator>
       <AllEventsStack.Screen
         name="All Events"
-        component={() => (
+        options={{ headerShown: false }}
+        key="AllEvents"
+      >
+        {() => (
           <ScreenWithAppBar>
             <AllEventsScreen />
           </ScreenWithAppBar>
         )}
-        options={{ headerShown: false }}
-      />
+      </AllEventsStack.Screen>
       <AllEventsStack.Screen
         name="EventDetails"
         component={EventDetailsScreen}
         options={{ title: 'Event Details' }}
+        key="EventDetails"
       />
     </AllEventsStack.Navigator>
   );
@@ -67,17 +72,20 @@ function MyEventsStackScreen() {
     <MyEventsStack.Navigator>
       <MyEventsStack.Screen
         name="My Events"
-        component={() => (
+        options={{ headerShown: false }}
+        key="MyEvents"
+      >
+        {() => (
           <ScreenWithAppBar>
             <MyEventsScreen />
           </ScreenWithAppBar>
         )}
-        options={{ headerShown: false }}
-      />
+      </MyEventsStack.Screen>
       <MyEventsStack.Screen
         name="EventDetails"
         component={EventDetailsScreen}
         options={{ title: 'Event Details' }}
+        key="EventDetails"
       />
     </MyEventsStack.Navigator>
   );
