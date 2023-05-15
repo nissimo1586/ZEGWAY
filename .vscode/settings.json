@@ -1,0 +1,17 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none",
+    "favorites.resources": [
+        {
+            "filePath": "src",
+            "group": "Default"
+        },
+        {
+            "filePath": "src\\reducers\\index.js",
+            "group": "Default"
+        }
+    ],
+    "favorites.sortOrder": "DESC"
+}
