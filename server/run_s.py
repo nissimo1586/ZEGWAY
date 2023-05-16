@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://event_min_user:xFq2u56@2@localhost/event_min'  # MySQL connection URL
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://event_min_user:xFq2u56-vdD2@localhost:3306/event_min'  # MySQL connection URL
 db = SQLAlchemy(app)
 
 # Event model
@@ -13,7 +13,9 @@ class Event(db.Model):
     time = db.Column(db.String(10))
     image = db.Column(db.String(200))
     location = db.Column(db.String(100))
-    description = db.Column(db.Text)  # New description column
+    description = db.Column(db.Text)
+    video = db.Column(db.String(200))
+
 
     def to_dict(self):
         return {
@@ -23,7 +25,8 @@ class Event(db.Model):
             'time': self.time,
             'image': self.image,
             'location': self.location,
-            'description': self.description  # Include description in the dictionary
+            'description': self.description,
+			'video': self.video
         }
 
 @app.route('/api/events')
