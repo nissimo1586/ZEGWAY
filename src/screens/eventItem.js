@@ -9,13 +9,6 @@ import { useNavigation } from "@react-navigation/native";
 import { connect } from "react-redux";
 import { addEvent, removeEvent } from "../events/selectedEventsActions";
 import { Video } from "expo-av";
-import {
-	Menu,
-	MenuOptions,
-	MenuOption,
-	MenuTrigger,
-} from "react-native-popup-menu";
-import { Appbar } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Share } from "react-native";
 
@@ -106,15 +99,7 @@ const EventItem = (props) => {
 					</TouchableOpacity>
 				</View>
 
-				<View style={homeScreenStyles.eventDetailsContainerbf}>
-					<View style={homeScreenStyles.eventFooterContainer}>
-						<TouchableOpacity onPress={toggleIconStatus}>
-							<Image
-								source={currentIcon}
-								style={homeScreenStyles.eventFooterButtonIcon}
-							/>
-						</TouchableOpacity>
-					</View>
+				<View style={homeScreenStyles.eventDetailsContainer}>
 					<View style={homeScreenStyles.eventDetailsContainer}>
 						<Text style={homeScreenStyles.eventTitleText}>{event.title}</Text>
 						<Text style={homeScreenStyles.eventDateTimeText}>
@@ -125,32 +110,49 @@ const EventItem = (props) => {
 						</Text>
 					</View>
 
-					<View>
-						<Menu>
-							<MenuTrigger>
-								<Appbar.Action icon="menu" color="#FFF" />
-							</MenuTrigger>
-							<MenuOptions>
-								<MenuOption onSelect={() => shareEvent(event)}>
-									<View style={{ flexDirection: "row", alignItems: "center" }}>
-										<Icon name="share-social-outline" size={20} color="#000" />
-										<Text>Share event via messenger</Text>
-									</View>
-								</MenuOption>
-								<MenuOption onSelect={() => saveEvent(event)}>
-									<View style={{ flexDirection: "row", alignItems: "center" }}>
-										<Icon name="calendar-outline" size={20} color="#000" />
-										<Text>Save event in calendar</Text>
-									</View>
-								</MenuOption>
-								<MenuOption onSelect={() => reportEvent(event)}>
-									<View style={{ flexDirection: "row", alignItems: "center" }}>
-										<Icon name="alert-circle-outline" size={20} color="#000" />
-										<Text>Event melden</Text>
-									</View>
-								</MenuOption>
-							</MenuOptions>
-						</Menu>
+					<View style={homeScreenStyles.bottomRowContainer}>
+						<TouchableOpacity onPress={toggleIconStatus}>
+							<Image
+								source={currentIcon}
+								style={homeScreenStyles.eventFooterButtonIcon}
+							/>
+						</TouchableOpacity>
+						<TouchableOpacity
+							style={[
+								homeScreenStyles.bottomRowItem,
+								{ marginRight: homeScreenStyles.iconStyle.marginRight },
+							]}
+							onPress={() => shareEvent(event)}
+						>
+							<Icon
+								name="share-social-outline"
+								size={homeScreenStyles.iconStyle.size}
+								color={homeScreenStyles.iconStyle.color}
+							/>
+						</TouchableOpacity>
+						<TouchableOpacity
+							style={[
+								homeScreenStyles.bottomRowItem,
+								{ marginRight: homeScreenStyles.iconStyle.marginRight },
+							]}
+							onPress={() => saveEvent(event)}
+						>
+							<Icon
+								name="calendar-outline"
+								size={homeScreenStyles.iconStyle.size}
+								color={homeScreenStyles.iconStyle.color}
+							/>
+						</TouchableOpacity>
+						<TouchableOpacity
+							style={homeScreenStyles.bottomRowItem}
+							onPress={() => reportEvent(event)}
+						>
+							<Icon
+								name="alert-circle-outline"
+								size={homeScreenStyles.iconStyle.size}
+								color={homeScreenStyles.iconStyle.color}
+							/>
+						</TouchableOpacity>
 					</View>
 				</View>
 			</View>

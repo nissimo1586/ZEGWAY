@@ -73,9 +73,20 @@ const homeScreenStyles = StyleSheet.create({
   eventDetailsContainerbf: {
     marginLeft: 30,
     flexDirection: 'row',
-
     alignItems: 'center',
   },
+
+  bottomRowContainer: {
+    marginLeft: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+iconStyle: {
+  size:30,
+  color:"#FFF", 
+  marginRight: 25,
+},
 
   eventFooterContainer: {
     flexDirection: 'row',
