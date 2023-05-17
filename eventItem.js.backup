@@ -44,24 +44,26 @@ const EventItem = (props) => {
 		}
 		setCurrentIcon(newIcon);
 		setEventCategory(newCategory);
+
+		const shareEvent = (event) => {
+			const { title, date, time, location } = event;
+			const message = `Check out this event:\n\nTitle: ${title}\nDate: ${date}\nTime: ${time}\nLocation: ${location}`;
+
+			Share.share({
+				message,
+			});
+		};
+
+		const saveEvent = (event) => {
+			// logic to save event in calendar
+		};
+
+		const reportEvent = (event) => {
+			// logic to report event
+		};
 	};
 
-	const shareEvent = (event) => {
-		const { title, date, time, location } = event;
-		const message = `Check out this event:\n\nTitle: ${title}\nDate: ${date}\nTime: ${time}\nLocation: ${location}`;
 
-		Share.share({
-			message,
-		});
-	};
-
-	const saveEvent = (event) => {
-		// logic to save event in calendar
-	};
-
-	const reportEvent = (event) => {
-		// logic to report event
-	};
 
 	return (
 		<TouchableOpacity
